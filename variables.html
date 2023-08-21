@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input  type="text"/>
+
+<button class="btn" onclick="onclickbtn()"></button>
+<button class="btn" onclick="onclickbtn()"></button>
+<button class="btn" onclick="onclickbtn()"></button>
+<button class="btn" onclick="onclickbtn()"></button>
+<button class="btn" onclick="onclickbtn()"></button>
+<button class="btn" onclick="onclickbtn()"></button>
+<button class="btn" onclick="onclickbtn()"></button>
+<button class="btn" onclick="onclickbtn()"></button>
+<button class="btn" onclick="onclickbtn()"></button>
+<button class="btn" onclick="onclickbtn()"></button>
+
+
+<script>
+const list=document.querySelectorAll(".btn");
+const inpt=document.querySelector("input");
+    list.forEach((l,indx)=>{
+    l.innerText=indx;
+    });
+    function onclickbtn(){
+    inpt.value=event.target.innerHTML;}
+
+</script>
+
+</body>
+</html>
