@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic events</title>
+</head>
+<body>
+
+<form onsubmit="submitForm()" >
+  <input name="name" type="text" id="name"/>
+  <input name="email" type="email" id="email"/>
+  <button type="submit" disabled>Submit</button>
+</form>
+<script>
+
+  function submitForm(){
+  event.preventDefault();
+  const name=document.querySelector("#name").value;
+  const email=document.querySelector("#email").value;
+  if(name=="" || email=="")
+  alert("You should input all the values");
+  else alert("submitted");
+
+  }
+    function addEvent(){
+    document.querySelector("form").addEventListener('submit',submitForm);
+    }
+</script>
+</body>
+</html>

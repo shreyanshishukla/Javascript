@@ -38,12 +38,7 @@ const inpt=document.querySelector("input");
     topp=Number(event.target.innerHTM);
 }
   const opt=()=>{
-   if(topp!=undefined  &&  event.target.innerHTML=='-')
-     {
-       inpt.value+=event.target.innerHTML;
-       topp=event.target.innerHTML;
-}
- else   if(topp!=undefined  && typeof topp =='number')
+   if(topp!=undefined  && typeof topp =='number')
      {
        inpt.value+=event.target.innerHTML;
        topp=event.target.innerHTML;
