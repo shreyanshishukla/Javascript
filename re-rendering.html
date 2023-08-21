@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul></ul>
+<button onclick="loadData()">Load</button>
+<button onclick="refreshData()">Refresh</button>
+<script>
+    function loadData() {
+      displayData(["A", "B", "C", "D"]);
+    }
+    function refreshData() {
+      displayData(["A", "B", "C", "D", "E", "F"]);
+    }
+    function displayData(data) {
+      const ele = document.querySelector("ul");
+      ele.innerHTML = "";
+      for (let emp of data) {
+        ele.innerHTML += "<li>" + emp + "</li>";
+      }
+    }
+</script>
+</body>
+</html>

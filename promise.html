@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise</title>
+</head>
+<body>
+<script>
+  function asyncWithPromise() {
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
+       console.log("resolve timer");
+        resolve();
+      }, 3000);
+      setTimeout(function () {
+        console.log("rejection timer");
+        reject();
+      }, 3000);
+    });
+  }
+
+ console.log( asyncWithPromise());
+
+</script>
+</body>
+</html>

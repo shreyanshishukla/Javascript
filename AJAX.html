@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX-fetch</title>
+</head>
+<body>
+<script>
+function getData(){
+const url="https://httpbin.org/post";
+const dt={name:"hiiiii!!!"}
+fetch({url,dt}).then(response=>{console.log(response)})
+.catch(err=>console.log(err));
+}
+getData();
+</script>
+</body>
+</html>

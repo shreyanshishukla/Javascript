@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>async await</title>
+</head>
+<body>
+<script>
+function asyncWithPromise() {
+return new Promise(function (resolve, reject) {
+setTimeout(function () {
+console.log("resolve timer");
+resolve("data");
+}, 1000);
+setTimeout(function () {
+console.log("rejection timer");
+reject("error");
+}, 4000);
+});
+}
+
+
+async function funct(){
+try{
+const data= await asyncWithPromise();
+console.log(data);
+
+}
+catch(err){
+console.log(err);}
+
+}
+funct();
+</script>
+</body>
+</html>
