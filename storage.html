@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>storage</title>
+</head>
+<body>
+<script>
+    function addStorage(){
+    sessionStorage.setItem("data",JSON.stringify({"name":"Shreyanshi"}));
+    }
+    function retrieveStorage()
+    {
+   console.log(JSON.parse( sessionStorage.getItem("data")));
+
+    }
+</script>
+</body>
+</html>

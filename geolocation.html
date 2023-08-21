@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>geo-location navigator</title>
+</head>
+<body>
+<script>
+function getGeoLocation(){
+navigator.geolocation.getCurrentPosition(
+(position)=>{console.log(position)},(err)=>{console.log(err)});
+}
+</script>
+</body>
+</html>
