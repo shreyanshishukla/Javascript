@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo-List</title>
+</head>
+<body>
+<style>
+  .todo-item{
+  display:felx;
+  align-items:center;
+  justify-content:center;
+  border:3px solid black;
+  width: 150px;
+  padding:5px;
+  margin:4px;}
+</style>
+<div clasas="form">
+  <form onsubmit="addItemToTodoList()">
+    <label>Add a Todo</label>
+    <input type="text" id="todoTask" />
+    <button >Add</button>
+  </form>
+</div>
+  <div class="todo-list">
+
+
+  </div>
+<script>
+  let tasks=[];
+  let  todo_arr=[{Task:"Write a note",Status:false}];
+  const todoList=document.querySelector(".todo-list");
+  const todoTask=document.querySelector("#todoTask");
+  function addItemToTodoList()
+  { event.preventDefault();
+
+
+     let newItem=document.createElement("div");
+     let newItemdata=document.createElement("div");
+
+
+     newItemdata.innerHTML=`Task: ${todoTask.value}  <br>  Status:Pending`;
+      newItem.classList.add("todo-item");
+      newItemdata.classList.add("todo-item-data");
+
+      tasks.push({"task":todoTask.value,"status":false});
+      todoTask.value="";
+
+
+      let newDeletebtn=document.createElement("button");
+      newDeletebtn.innerHTML="DELETE";
+      newDeletebtn.setAttribute("data-id",tasks.length-1);
+
+
+      let newUpdatebtn=document.createElement("button");
+      newUpdatebtn.innerHTML="UPDATE";
+      newUpdatebtn.setAttribute("arrid",tasks.length-1);
+
+
+      newUpdatebtn.addEventListener('click' ,onUpdate);
+      newDeletebtn.addEventListener('click' ,onDelete);
+
+       newItem.appendChild(newDeletebtn);
+      newItem.appendChild(newUpdatebtn);
+      newItem.appendChild(newItemdata);
+
+      todoList.appendChild(newItem);
+
+
+
+
+
+  }
+function re_render(){
+todoList.innerHTML="";
+const copytasks=tasks;
+tasks=[];
+for(let x of copytasks){
+
+     let newItem=document.createElement("div");
+     let newItemdata=document.createElement("div");
+     newItemdata.innerHTML=`Task: ${x.task}  <br>  Status:${x.status?"Completed":"Pending"}`;
+      newItem.classList.add("todo-item");
+      newItemdata.classList.add("todo-item-data");
+
+      tasks.push({"task":x.task,"status":x.status});
+      todoTask.value="";
+
+      let newDeletebtn=document.createElement("button");
+      newDeletebtn.innerHTML="DELETE";
+      newDeletebtn.setAttribute("data-id",tasks.length-1);
+
+
+      let newUpdatebtn=document.createElement("button");
+      newUpdatebtn.innerHTML="UPDATE";
+      newUpdatebtn.setAttribute("arrid",tasks.length-1);
+
+
+      newUpdatebtn.addEventListener('click' ,onUpdate);
+      newDeletebtn.addEventListener('click' ,onDelete);
+
+       newItem.appendChild(newDeletebtn);
+      newItem.appendChild(newUpdatebtn);
+      newItem.appendChild(newItemdata);
+
+      todoList.appendChild(newItem);
+
+}}
+function onDelete(){
+
+const indx=event.target.getAttribute("arrid");
+tasks.splice(indx,1);
+re_render();
+}
+function onUpdate(){
+  const todoItems=document.querySelectorAll(".todo-item-data");
+
+    const indx=event.target.getAttribute("arrid");
+    tasks[indx].status=!tasks[indx].status;
+    const datastatus=tasks[indx].status?"Completed":"Pending";
+todoItems[indx].innerHTML=`Task: ${tasks[indx].task}  <br>  Status:${datastatus}`;
+
+      }
+
+</script>
+</body>
+</html>
