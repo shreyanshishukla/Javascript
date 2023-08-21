@@ -17,17 +17,53 @@
 <button class="btn" onclick="onclickbtn()"></button>
 <button class="btn" onclick="onclickbtn()"></button>
 <button class="btn" onclick="onclickbtn()"></button>
-<button class="btn" onclick="onclickbtn()"></button>
-
+<button class="opt" onclick="opt()">+</button>
+<button class="opt" onclick="opt()">-</button>
+<button class="opt" onclick="opt()">*</button>
+<button class="opt" onclick="opt()">/</button>
+<button class="clear" onclick="clearval()">clr</button>
+<button class="eq" onclick="eq()">=</button>
 
 <script>
 const list=document.querySelectorAll(".btn");
+
 const inpt=document.querySelector("input");
     list.forEach((l,indx)=>{
     l.innerText=indx;
     });
+ let topp;
+
     function onclickbtn(){
-    inpt.value=event.target.innerHTML;}
+    inpt.value+=event.target.innerHTML;
+    topp=Number(event.target.innerHTM);
+}
+  const opt=()=>{
+   if(topp!=undefined  &&  event.target.innerHTML=='-')
+     {
+       inpt.value+=event.target.innerHTML;
+       topp=event.target.innerHTML;
+}
+ else   if(topp!=undefined  && typeof topp =='number')
+     {
+       inpt.value+=event.target.innerHTML;
+       topp=event.target.innerHTML;
+
+}
+    }
+
+     const clearval=()=>{
+       inpt.value="";
+    topp=undefined;
+
+       console.log(inpt);
+    }
+
+    const eq=()=>{
+    console.log(inpt.value.toString());
+    inpt.value=eval(inpt.value.toString());
+    topp=undefined;
+
+    }
 
 </script>
 

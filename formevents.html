@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form onsubmit="testFunction2()" onreset="testFunction()">
+  <input type="text" onfocus="testFunction()" />
+  <input type="text" onblur="testFunction()" />
+  <input type="text" onchange="testFunction()" />
+  <input type="text" onselect="testFunction()" />
+  <button type="submit">Submit</button>
+  <button type="reset">Reset</button>
+</form>
+<script>
+  function testFunction() {
+    console.log("Event", event.type);
+  }
+    function testFunction2() {
+    event.preventDefault()
+    console.log("Event", event.type);
+  }
+</script>
+</body>
+</html>
