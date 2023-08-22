@@ -21,23 +21,23 @@
     <input type="text" id="todoTask" />
     <button >Add</button>
   </form>
+  <br>
+  <div class="sort"></div>
+  <button  onclick="sort()" disabled >Sort</button>
 </div>
   <div class="todo-list">
 
-
   </div>
 <script>
+
   let tasks=[];
   let  todo_arr=[{Task:"Write a note",Status:false}];
   const todoList=document.querySelector(".todo-list");
   const todoTask=document.querySelector("#todoTask");
   function addItemToTodoList()
   { event.preventDefault();
-
-
-     let newItem=document.createElement("div");
-     let newItemdata=document.createElement("div");
-
+  let newItem=document.createElement("div");
+  let newItemdata=document.createElement("div");
 
      newItemdata.innerHTML=`Task: ${todoTask.value}  <br>  Status:Pending`;
       newItem.classList.add("todo-item");
@@ -71,6 +71,87 @@
 
 
   }
+
+<!--  function sort(){-->
+<!--  pending=[];-->
+<!--  non_pending=[];-->
+<!--  for(let x of tasks){-->
+<!--  if(tasks.status)-->
+<!--  non_pending.push(x);-->
+<!--  else-->
+<!--  pending.push(x);-->
+<!--  }-->
+
+<!--  todoList.innerHTML="";-->
+<!--  const sortarea=document.querySelector(".sort");-->
+<!--  sortarea.innerHTML("-->
+<!--  <div class="pending">-->
+<!--  <div class="todo-list"></div>-->
+<!--  <div class="non_pending">-->
+<!--   <div class="todo-list"></div></div>");-->
+<!--  for(let x of pending){-->
+<!--  let newItem=document.createElement("div");-->
+<!--     let newItemdata=document.createElement("div");-->
+<!--     newItemdata.innerHTML=`Task: ${x.task}  <br>  Status:${x.status?"Completed":"Pending"}`;-->
+<!--      newItem.classList.add("todo-item");-->
+<!--      newItemdata.classList.add("todo-item-data");-->
+
+<!--      tasks.push({"task":x.task,"status":x.status});-->
+<!--      todoTask.value="";-->
+
+<!--      let newDeletebtn=document.createElement("button");-->
+<!--      newDeletebtn.innerHTML="DELETE";-->
+<!--      newDeletebtn.setAttribute("data-id",tasks.length-1);-->
+
+
+<!--      let newUpdatebtn=document.createElement("button");-->
+<!--      newUpdatebtn.innerHTML="UPDATE";-->
+<!--      newUpdatebtn.setAttribute("arrid",tasks.length-1);-->
+
+
+<!--      newUpdatebtn.addEventListener('click' ,onUpdate);-->
+<!--      newDeletebtn.addEventListener('click' ,onDelete);-->
+
+<!--       newItem.appendChild(newDeletebtn);-->
+<!--      newItem.appendChild(newUpdatebtn);-->
+<!--      newItem.appendChild(newItemdata);-->
+<!--      todoList.appendChild(newItem);-->
+<!--  }-->
+
+<!--     for(let x of n0pending){-->
+<!--  let newItem=document.createElement("div");-->
+<!--     let newItemdata=document.createElement("div");-->
+<!--     newItemdata.innerHTML=`Task: ${x.task}  <br>  Status:${x.status?"Completed":"Pending"}`;-->
+<!--      newItem.classList.add("todo-item");-->
+<!--      newItemdata.classList.add("todo-item-data");-->
+
+<!--      tasks.push({"task":x.task,"status":x.status});-->
+<!--      todoTask.value="";-->
+
+<!--      let newDeletebtn=document.createElement("button");-->
+<!--      newDeletebtn.innerHTML="DELETE";-->
+<!--      newDeletebtn.setAttribute("data-id",tasks.length-1);-->
+
+
+<!--      let newUpdatebtn=document.createElement("button");-->
+<!--      newUpdatebtn.innerHTML="UPDATE";-->
+<!--      newUpdatebtn.setAttribute("arrid",tasks.length-1);-->
+
+
+<!--      newUpdatebtn.addEventListener('click' ,onUpdate);-->
+<!--      newDeletebtn.addEventListener('click' ,onDelete);-->
+
+<!--       newItem.appendChild(newDeletebtn);-->
+<!--      newItem.appendChild(newUpdatebtn);-->
+<!--      newItem.appendChild(newItemdata);-->
+<!--      todoList.appendChild(newItem);-->
+<!--  }-->
+
+<!--}-->
+
+
+
+<!--  }-->
 function re_render(){
 todoList.innerHTML="";
 const copytasks=tasks;
@@ -102,7 +183,6 @@ for(let x of copytasks){
        newItem.appendChild(newDeletebtn);
       newItem.appendChild(newUpdatebtn);
       newItem.appendChild(newItemdata);
-
       todoList.appendChild(newItem);
 
 }}
@@ -114,7 +194,6 @@ re_render();
 }
 function onUpdate(){
   const todoItems=document.querySelectorAll(".todo-item-data");
-
     const indx=event.target.getAttribute("arrid");
     tasks[indx].status=!tasks[indx].status;
     const datastatus=tasks[indx].status?"Completed":"Pending";
