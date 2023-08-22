@@ -4,3 +4,9 @@ function newfunction():void{
 function newfunction2(a:number,b:string):string{
     return a+b;
 }
+
+
+function newfuntion3(a:number ,...b:string[])
+{
+    console.log(a,b);
+}
